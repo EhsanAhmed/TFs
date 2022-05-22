@@ -21,8 +21,8 @@ namespace Demo.Controllers
        // [ValidateAntiForgeryToken]
         public IActionResult SaveNEw(Course cour)
         {
-            if (cour.Name != null && cour.Name != null && ModelState.IsValid == true)
-            {
+           // if (cour.Name != null && cour.Name != null && ModelState.IsValid == true)
+           // {
                 Course course = new Course();
                 course.Name = cour.Name;
                 course.Degree = cour.Degree;
@@ -32,7 +32,7 @@ namespace Demo.Controllers
                 context.SaveChanges();
                 List<Course> courses = context.Courses.ToList();
                 return View("SaveNEw",courses);//, new{id=5,name="asd" });
-            }
+         //   }
             List<Department> DeptList = context.Department.ToList();
             ViewData["Dept"] = DeptList;
             return View("New", cour);
